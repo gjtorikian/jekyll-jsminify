@@ -50,7 +50,13 @@ module Jekyll
       end
 
       def convert(content)
-        Uglifier.new(@config['jsminify']).compile super
+        # can't figure out why sometimes, CS comes down here, and sometimes,
+        # proper JS. Also can't figure out how to scope to just SyntaxError.
+        begin
+          Uglifier.new(@config['jsminify']).compile super
+        rescue
+          Uglifier.new(@config['jsminify']).compile content
+        end
       end
     end
   end
