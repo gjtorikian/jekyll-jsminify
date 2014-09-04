@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-jsminify"
-  spec.version       = "0.0.1"
+  spec.version       = "0.1.0"
   spec.authors       = ["Garen J. Torikian"]
   spec.email         = ["gjtorikian@gmail.com"]
   spec.summary       = %q{A JavaScript and CoffeeScript minifier for Jekyll.}
