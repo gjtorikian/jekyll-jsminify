@@ -21,8 +21,6 @@ For example, if you have a file called *application.js* that looks like this:
 ```
 ---
 ---
----
----
 {% include assets/javascripts/foo.js %}
 {% include assets/javascripts/bar.js %}
 {% include assets/javascripts/js.js %}
