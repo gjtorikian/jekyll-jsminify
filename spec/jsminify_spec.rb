@@ -11,6 +11,10 @@ describe(Jekyll::Converters::CoffeeScript) do
 
   let(:cs_content) do
     <<-COFFEESCRIPT
+###
+# @file This is my cool script.
+# @copyright Garen J. Torikian 2014
+###
 # Functions:
 square = (x) -> x * x
 
@@ -27,6 +31,10 @@ COFFEESCRIPT
 
   let(:js_content) do
     <<-JS
+/*
+ * @file This is my cool script.
+ * @copyright Garen J. Torikian 2014
+ */
 (function() {
   var list, math, square;
 
@@ -49,6 +57,10 @@ JS
   end
 
   let (:js_minified) do
+    "/*\n * @file This is my cool script.\n * @copyright Garen J. Torikian 2014\n */\n(function(){var t,n,r;r=function(t){return t*t},t=[1,2,3,4,5],n={root:Math.sqrt,square:r,cube:function(t){return t*r(t)}}}).call(this);"
+  end
+
+  let (:js_minified_no_comment) do
     "(function(){var t,n,r;r=function(t){return t*t},t=[1,2,3,4,5],n={root:Math.sqrt,square:r,cube:function(t){return t*r(t)}}}).call(this);"
   end
 

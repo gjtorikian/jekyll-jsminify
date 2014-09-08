@@ -1,9 +1,7 @@
 require 'uglifier'
 
 DEFAULT_UGLIFY_OPTS = {
-  "jsminify" => {
-    :comments => :none
-  }
+  "jsminify" => { }
 }
 
 module Jekyll
