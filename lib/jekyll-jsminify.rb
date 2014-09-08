@@ -45,6 +45,7 @@ module Jekyll
 
         def convert(content)
           config = @config['jsminify'] || {}
+          return content if config[:do_not_compress] == true
           Uglifier.new(config).compile content
         end
       end
@@ -74,6 +75,7 @@ module Jekyll
 
         def convert(content)
           config = @config['jsminify'] || {}
+          return super if config[:do_not_compress] == true
           # can't figure out why sometimes, CS comes down here, and sometimes,
           # proper JS. Also can't figure out how to scope to just SyntaxError.
           begin
