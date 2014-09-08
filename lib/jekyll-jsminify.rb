@@ -75,9 +75,16 @@ module Jekyll
 
         def convert(content)
           config = @config['jsminify'] || {}
-          return super if config[:do_not_compress] == true
+
           # can't figure out why sometimes, CS comes down here, and sometimes,
           # proper JS. Also can't figure out how to scope to just SyntaxError.
+          # some timing issue?
+          begin
+            return super if config[:do_not_compress] == true
+          rescue
+            return content if config[:do_not_compress] == true
+          end
+
           begin
             Uglifier.new(config).compile super
           rescue
