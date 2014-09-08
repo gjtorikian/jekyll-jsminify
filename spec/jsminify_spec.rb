@@ -2,11 +2,27 @@ require 'spec_helper'
 
 describe(Jekyll::Converters::CoffeeScript) do
   let(:js_converter) do
-    Jekyll::Converters::JSMinify.new
+    Jekyll::Converters::Minify::JSMinify.new
   end
 
   let(:cs_converter) do
-    Jekyll::Converters::CSMinify.new
+    Jekyll::Converters::Minify::CSMinify.new
+  end
+
+  let(:config) do
+    {
+      'jsminify' => {
+        'output' => { 'comments' => 'none' }
+      }
+    }
+  end
+
+  let(:js_converter_with_config) do
+    Jekyll::Converters::Minify::JSMinify.new(config)
+  end
+
+  let(:cs_converter_with_config) do
+    Jekyll::Converters::Minify::CSMinify.new(config)
   end
 
   let(:cs_content) do
@@ -91,6 +107,16 @@ JS
 
     it "produces minified CS" do
       expect(cs_converter.convert(cs_content)).to eql(js_minified)
+    end
+
+    context "with config" do
+      it "produces minified JS without comments" do
+        expect(js_converter_with_config.convert(js_content)).to eql(js_minified_no_comment)
+      end
+
+      it "produces minified CS without comments" do
+        expect(cs_converter_with_config.convert(cs_content)).to eql(js_minified_no_comment)
+      end
     end
   end
 end
