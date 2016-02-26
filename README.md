@@ -9,7 +9,7 @@ In your *_config.yml* file, add this gem:
 
 ``` yaml
 gems:
-  - jekyll-jsminifer
+  - jekyll-jsminify
 ```
 
 ## Usage
