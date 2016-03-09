@@ -56,7 +56,7 @@ end
 module Jekyll
   module Converters
     module Minify
-      class CSMinify < CoffeeScript
+      class CSMinify < Converter
         safe true
         priority :lowest
 
@@ -70,7 +70,7 @@ module Jekyll
         end
 
         def output_ext(ext)
-          super
+          ".js"
         end
 
         def convert(content)
