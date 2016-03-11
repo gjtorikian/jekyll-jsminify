@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe(Jekyll::Converters::CoffeeScript) do
+describe(Jekyll::Converters) do
   let(:js_converter) do
-    Jekyll::Converters::Minify::JSMinify.new
+    Jekyll::Converters::JSMinify.new
   end
 
   let(:cs_converter) do
-    Jekyll::Converters::Minify::CSMinify.new
+    Jekyll::Converters::CSMinify.new
   end
 
   let(:config) do
@@ -26,19 +26,19 @@ describe(Jekyll::Converters::CoffeeScript) do
   end
 
   let(:js_converter_with_config) do
-    Jekyll::Converters::Minify::JSMinify.new(config)
+    Jekyll::Converters::JSMinify.new(config)
   end
 
   let(:cs_converter_with_config) do
-    Jekyll::Converters::Minify::CSMinify.new(config)
+    Jekyll::Converters::CSMinify.new(config)
   end
 
   let(:js_converter_with_no_minification) do
-    Jekyll::Converters::Minify::JSMinify.new(do_not_minify)
+    Jekyll::Converters::JSMinify.new(do_not_minify)
   end
 
   let(:cs_converter_with_no_minification) do
-    Jekyll::Converters::Minify::CSMinify.new(do_not_minify)
+    Jekyll::Converters::CSMinify.new(do_not_minify)
   end
 
   let(:cs_content) do

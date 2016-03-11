@@ -1,5 +1,4 @@
-jekyll-jsminify
-================
+# jekyll-jsminify
 
 This is an absolute barebones JavaScript and CoffeeScript minifer for Jekyll. For something extraordinary that covers all use cases, I suggest [jekyll-assets](https://github.com/ixti/jekyll-assets).
 
